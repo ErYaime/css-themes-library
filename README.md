@@ -82,57 +82,127 @@ Ejemplo mínimo de implementación:
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Proyecto Prisma</title>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ErYaime/css-themes-library/01-tema-prisma/main.css">
-
-<script src="https://cdn.jsdelivr.net/gh/ErYaime/css-themes-library/01-tema-prisma/prisma.js" defer></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Demo - Tema Prisma v1.0</title>
+    
+    <link rel="stylesheet" href="01-tema-prisma/main.css">
+    <script src="01-tema-prisma/prisma.js" defer></script>
 </head>
-
 <body>
 
-<input type="checkbox" id="interruptor-menu" class="ocultar-interruptor">
+    <input type="checkbox" id="interruptor-menu" class="ocultar-interruptor">
 
-<header class="cabecera-principal">
+    <header class="cabecera-principal">
+        <div class="logo-titulo">
+            <h1>Tema Prisma <span class="etiqueta">V1.0-CLEAN</span></h1>
+        </div>
+        
+        <label for="interruptor-menu" class="boton-hamburguesa">☰</label>
+        
+        <nav class="barra-navegacion">
+            <label for="interruptor-menu" class="boton-cerrar">✕</label>
+            <ul>
+                <li><a href="#semantica">Semántica</a></li>
+                <li><a href="#layouts">Grid & Flexbox</a></li>
+                <li><a href="#multimedia">Multimedia</a></li>
+                <li><a href="#formularios">Formularios</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<h1>Tema Prisma <span class="etiqueta">V1.0</span></h1>
+    <main>
+        <section id="semantica">
+            <header>
+                <h2>1. Semántica y Tipografía</h2>
+            </header>
+            
+            <article>
+                <p>La <dfn>semántica</dfn> es la base de nuestro sistema. El horario es <time datetime="02:00">02:00 AM</time>.</p>
+                
+                <p>Comandos: <kbd>Ctrl</kbd> + <kbd>C</kbd>. Salida: <samp>Success</samp>. Variable: <var>x</var>.</p>
 
-<label for="interruptor-menu" class="boton-hamburguesa">☰</label>
+                <address>
+                    <strong>Centro de Operaciones</strong><br>
+                    Sector Informático 7<br>
+                    <a href="mailto:admin@temaprisma.local">admin@temaprisma.local</a>
+                </address>
+            </article>
+        </section>
 
-<nav class="barra-navegacion">
-<ul>
-<li><a href="#intro">Inicio</a></li>
-<li><a href="#config">Configuración</a></li>
-</ul>
-</nav>
+        <div class="linea-separadora"></div>
 
-</header>
+        <section id="layouts">
+            <h2>2. Layouts Adaptativos</h2>
+            <div class="grid-contenedor">
+                <article class="tarjeta efecto-sombra interactivo">
+                    <h3>Módulo Alpha</h3>
+                    <p>Contenido que se adapta al ancho del contenedor.</p>
+                    <footer>
+                        <button type="button" class="efecto-sombra interactivo">Inspeccionar</button>
+                    </footer>
+                </article>
 
-<main>
+                <article class="tarjeta efecto-sombra interactivo">
+                    <h3>Módulo Beta</h3>
+                    <p>
+			Si esta tarjeta queda sola abajo, ocupará el 100%. <br>
+			Puedes probar a modificar el código y añadir mas tarjetas.
+		    </p>
+                    <footer>
+                        <button type="button" class="efecto-sombra interactivo">Desplegar</button>
+                    </footer>
+                </article>
+            </div>
+        </section>
 
-<section class="grid-contenedor">
+        <div class="linea-separadora"></div>
 
-<article class="tarjeta efecto-sombra interactivo">
+        <section id="multimedia">
+            <h2>3. Multimedia Enmarcada</h2>
+            <figure class="contenedor-multimedia efecto-sombra">
+                <iframe width="100%" height="300" src="https://www.openstreetmap.org/export/embed.html?bbox=-3.71%2C40.41%2C-3.69%2C40.42&amp;layer=mapnik"></iframe>
+                <figcaption>Fig 1. Mapa de operaciones con estilos externos.</figcaption>
+            </figure>
+        </section>
 
-<h3>Módulo de Control</h3>
+        <div class="linea-separadora"></div>
 
-<p>Interfaz brutalista lista para producción.</p>
+        <section id="formularios">
+            <h2>4. Control de Rango Brutalista</h2>
+            <form action="#">
+                <fieldset class="efecto-sombra">
+                    <legend>Sensores de Intensidad</legend>
+                    <label for="f_rango">Calibración:</label>
+                    <input type="range" id="f_rango" min="0" max="100" value="75">
+                    
+                    <label for="f_password">Acceso:</label>
+                    <input type="password" id="f_password" placeholder="••••••••" autocomplete="current-password">
+                    
+                    <button type="submit" class="efecto-sombra interactivo">Ejecutar</button>
+                </fieldset>
+            </form>
+        </section>
 
-<input type="range" min="0" max="100" value="75">
+        <div class="linea-separadora"></div>
 
-<button class="efecto-sombra interactivo">
-Ejecutar Comando
-</button>
+        <section id="faq">
+            <h2>5. FAQ</h2>
+            <details class="acordeon efecto-sombra interactivo">
+                <summary>¿Está el código limpio?</summary>
+                <div class="contenido-acordeon">
+                    <p>Por supuesto. Cero estilos inline detectados.</p>
+                </div>
+            </details>
+        </section>
+    </main>
 
-</article>
-
-</section>
-
-</main>
+    <footer>
+        <p>&copy; 2026. Desarrollado por ErYaime.</p>
+    </footer>
 
 </body>
 </html>
