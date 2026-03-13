@@ -1,0 +1,45 @@
+/* =========================================
+   Tema: 01-tema-prisma
+   Archivo: main.css
+   ========================================= */
+
+/* --- 1. FUENTES EXTERNAS --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap');
+
+/* --- 2. IMPORTACIÓN DE MÓDULOS --- */
+@import url("variables.css");
+@import url("reset.css");
+@import url("tipografia.css");
+@import url("estructura.css");
+@import url("botones.css");
+
+/* --- 3. CLASES DE UTILIDAD GLOBALES --- */
+.efecto-sombra {
+    box-shadow: 4px 4px 0px var(--color-borde);
+}
+
+.interactivo {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interactivo:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--color-borde);
+}
+
+.etiqueta {
+    display: inline-block;
+    background-color: var(--color-fondo-secundario);
+    border: var(--grosor-borde) solid var(--color-borde);
+    padding: 0.1em 0.5em;
+    font-size: 0.85em;
+    font-weight: bold;
+    font-family: var(--fuente-codigo);
+}
+
+.destacado {
+    background-color: var(--color-texto);
+    color: var(--color-fondo-principal);
+    padding: 0 0.3em;
+    font-weight: bold;
+}

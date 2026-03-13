@@ -1,0 +1,164 @@
+/* =========================================
+   Tema: 01-tema-prisma
+   Módulo: botones.css
+   ========================================= */
+
+/* --- 1. ENLACES --- */
+a {
+    color: var(--color-texto);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: var(--grosor-borde);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+a:hover {
+    background-color: var(--color-texto);
+    color: var(--color-fondo-principal);
+    text-decoration: none;
+}
+
+/* --- 2. BOTONES --- */
+button, 
+input[type="submit"], 
+input[type="button"] {
+    font-family: var(--fuente-principal);
+    font-weight: 700;
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto);
+    border: var(--grosor-borde) solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--espacio-s) var(--espacio-l);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
+
+button:hover:not(:disabled), 
+input[type="submit"]:hover:not(:disabled) {
+    background-color: var(--color-texto);
+    color: var(--color-fondo-principal);
+}
+
+button:disabled, 
+input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--color-fondo-secundario);
+}
+
+/* --- 3. ESTRUCTURA DE FORMULARIOS --- */
+fieldset {
+    border: var(--grosor-borde) solid var(--color-borde);
+    padding: var(--espacio-m);
+    margin-bottom: var(--espacio-m);
+    background-color: var(--color-fondo-principal);
+}
+
+legend {
+    font-weight: 700;
+    padding: 0 var(--espacio-s);
+    border: var(--grosor-borde) solid var(--color-borde);
+    background-color: var(--color-fondo-principal);
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--espacio-s);
+}
+
+/* --- 4. CAMPOS DE ENTRADA (TEXTO, SELECT, TEXTAREA) --- */
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--espacio-s);
+    border: var(--grosor-borde) solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    font-family: var(--fuente-principal);
+    margin-bottom: var(--espacio-m);
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto);
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Focus técnico: Elegante y sin sombras toscas */
+input:focus, 
+textarea:focus, 
+select:focus {
+    outline: 2px solid var(--color-texto);
+    outline-offset: 2px;
+    background-color: var(--color-fondo-principal);
+    border-color: var(--color-texto);
+    box-shadow: none;
+}
+
+/* --- 5. CONTROL DE RANGO (RANGE) CON COLOR DINÁMICO --- */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    background: transparent;
+    cursor: pointer;
+    margin-bottom: var(--espacio-m);
+}
+
+/* Pista (Track) - Webkit (Chrome/Safari/Edge) */
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 12px;
+    border: var(--grosor-borde) solid var(--color-borde);
+    /* El degradado crea el efecto de color dinámico usando la variable --value */
+    background: linear-gradient(to right, 
+                var(--color-acento) 0%, 
+                var(--color-acento) var(--value, 0%), 
+                var(--color-fondo-secundario) var(--value, 0%), 
+                var(--color-fondo-secundario) 100%);
+}
+
+/* Pista (Track) - Firefox */
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 12px;
+    background: var(--color-fondo-secundario);
+    border: var(--grosor-borde) solid var(--color-borde);
+}
+
+/* Color de progreso específico para Firefox */
+input[type="range"]::-moz-range-progress {
+    background-color: var(--color-acento);
+    height: 12px;
+    border: var(--grosor-borde) solid var(--color-borde);
+    border-right: none;
+}
+
+/* Tirador (Thumb) - Cuadrado Perfecto */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    background: var(--color-texto);
+    border: var(--grosor-borde) solid var(--color-borde);
+    margin-top: -8px; /* Centrado preciso: (Track 12px / 2) - (Thumb 24px / 2) + Borde */
+    transition: transform 0.1s ease;
+    box-shadow: 2px 2px 0px var(--color-borde);
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 24px;
+    width: 24px;
+    background: var(--color-texto);
+    border: var(--grosor-borde) solid var(--color-borde);
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px var(--color-borde);
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+    transform: scale(0.95);
+    background-color: var(--color-acento);
+}

@@ -1,0 +1,55 @@
+/* =========================================
+   Tema: 01-tema-prisma
+   Módulo: reset.css
+   ========================================= */
+
+html {
+    scroll-behavior: smooth;
+    /* Compensa la altura del header fijo (80px + margen) */
+    scroll-padding-top: 100px; 
+    scrollbar-gutter: stable;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+}
+
+::selection {
+    background-color: var(--color-seleccion);
+    color: var(--color-texto);
+}
+
+/* Scrollbar Brutalista */
+::-webkit-scrollbar {
+    width: 14px;
+    border-left: var(--grosor-borde) solid var(--color-borde);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-fondo-secundario);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-texto);
+    border: 2px solid var(--color-fondo-secundario);
+    border-radius: var(--radio-borde);
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: var(--grosor-borde) solid var(--color-borde);
+}

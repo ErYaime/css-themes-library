@@ -1,0 +1,295 @@
+/* =========================================
+   Tema: 01-tema-prisma
+   Módulo: estructura.css
+   ========================================= */
+
+/* --- 1. CABECERA FIJA CON DESENFOQUE --- */
+.cabecera-principal {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: var(--grosor-borde) solid var(--color-borde);
+    padding: var(--espacio-m);
+    
+    /* Efecto Glassmorphism con color de fondo del sistema */
+    background-color: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
+}
+
+.cabecera-principal h1 {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+/* --- 2. MOTOR DEL MENÚ (Checkbox Hack) --- */
+.ocultar-interruptor {
+    display: none;
+}
+
+.boton-hamburguesa, 
+.boton-cerrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: var(--grosor-borde) solid var(--color-borde);
+    background-color: var(--color-fondo-principal);
+    user-select: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.boton-hamburguesa:hover, 
+.boton-cerrar:hover {
+    background-color: var(--color-texto);
+    color: var(--color-fondo-principal);
+}
+
+/* --- 3. NAVEGACIÓN LATERAL (Sidebar) --- */
+.barra-navegacion {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--color-fondo-secundario);
+    border-left: var(--grosor-borde) solid var(--color-borde);
+    padding: var(--espacio-m);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -5px 0 0px var(--color-borde);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+}
+
+.barra-navegacion ul {
+    list-style: none;
+    width: 100%;
+}
+
+.barra-navegacion li {
+    margin-bottom: var(--espacio-s);
+    width: 100%;
+}
+
+.barra-navegacion a {
+    text-decoration: none;
+    display: block;
+    padding: var(--espacio-s) var(--espacio-m);
+    font-size: 1.15rem;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Lógica de apertura y bloqueo de scroll */
+.ocultar-interruptor:checked ~ .cabecera-principal .barra-navegacion {
+    right: 0;
+}
+
+.ocultar-interruptor:checked ~ main,
+.ocultar-interruptor:checked ~ footer {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+body:has(.ocultar-interruptor:checked) {
+    overflow: hidden;
+}
+
+/* --- 4. ESTRUCTURA DE CONTENIDO --- */
+main, footer {
+    transition: filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+main {
+    width: 100%;
+    padding: var(--espacio-l) var(--espacio-m);
+}
+
+section, article {
+    margin-bottom: var(--espacio-l);
+}
+
+footer {
+    border-top: var(--grosor-borde) solid var(--color-borde);
+    padding: var(--espacio-l) var(--espacio-m);
+    text-align: center;
+    background-color: var(--color-fondo-secundario);
+}
+
+/* --- 5. COMPONENTES SEMÁNTICOS (Refactorizados de Inline) --- */
+address {
+    border-left: var(--grosor-borde-doble) solid var(--color-borde);
+    padding: var(--espacio-m); /* Aumentado para que el fondo respire */
+    font-style: normal;
+    margin-bottom: var(--espacio-m);
+    background-color: var(--color-fondo-secundario); /* Color de fondo sutil añadido */
+}
+
+address a {
+    border-radius: var(--radio-borde); /* Mantener los 0px definidos en sus variables */
+    padding: 0.1em 0.3em; /* Un respiro sutil para el color de fondo en el hover */
+    display: inline-block; /* Permite que el padding se aplique correctamente */
+}
+
+figure.contenedor-multimedia {
+    border: var(--grosor-borde) solid var(--color-borde);
+    padding: var(--espacio-s);
+    background-color: var(--color-fondo-secundario);
+    margin-bottom: var(--espacio-m);
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+    margin-top: var(--espacio-s);
+    font-size: 0.9em;
+}
+
+details.acordeon {
+    padding: var(--espacio-m);
+    border: var(--grosor-borde) solid var(--color-borde);
+    background-color: var(--color-fondo-secundario);
+    margin-bottom: var(--espacio-s);
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+    padding: var(--espacio-s);
+    margin: calc(var(--espacio-s) * -1);
+}
+
+.contenido-acordeon {
+    margin-top: var(--espacio-m);
+    padding-top: var(--espacio-m);
+    border-top: 1px dashed var(--color-borde);
+}
+
+/* --- 6. TABLAS E INDICADORES --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--espacio-m);
+}
+
+th, td {
+    border: var(--grosor-borde) solid var(--color-borde);
+    padding: var(--espacio-s) var(--espacio-m);
+}
+
+progress, meter {
+    appearance: none;
+    width: 100%;
+    height: 25px;
+    border: var(--grosor-borde) solid var(--color-borde);
+    background-color: var(--color-fondo-secundario);
+    margin-bottom: var(--espacio-m);
+    display: block;
+}
+
+/* --- 7. LAYOUTS ADAPTATIVOS (Tarjetas) --- */
+.grid-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espacio-m);
+    margin-bottom: var(--espacio-l);
+}
+
+.tarjeta {
+    flex: 1 1 280px;
+    border: var(--grosor-borde) solid var(--color-borde);
+    background-color: var(--color-fondo-principal);
+    padding: var(--espacio-m);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* --- 8. MEDIA QUERIES (Mobile-First Ascendente) --- */
+
+/* Tablet / Pantallas Medianas */
+@media (min-width: 768px) {
+    main {
+        width: 85%;
+        margin: 0 auto;
+    }
+    .cabecera-principal {
+        padding: var(--espacio-m) 5%;
+    }
+}
+
+/* Desktop Estándar */
+@media (min-width: 1024px) {
+    main {
+        width: 75%;
+        max-width: 1100px;
+    }
+}
+
+/* Punto de Ruptura Adaptativo para Navegación Horizontal */
+@media (min-width: 1150px) {
+    .boton-hamburguesa, 
+    .boton-cerrar {
+        display: none;
+    }
+
+    .barra-navegacion {
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        border-left: none;
+        padding: 0;
+        box-shadow: none;
+        display: block;
+    }
+
+    .barra-navegacion ul {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: var(--espacio-s);
+    }
+
+    .barra-navegacion li {
+        margin-bottom: 0;
+        width: auto;
+    }
+
+    .barra-navegacion a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        white-space: nowrap;
+    }
+
+    /* Reset de comportamientos móviles */
+    .ocultar-interruptor:checked ~ main,
+    .ocultar-interruptor:checked ~ footer {
+        filter: none;
+        pointer-events: auto;
+    }
+
+    body:has(.ocultar-interruptor:checked) {
+        overflow: auto;
+    }
+}
+
+/* Pantallas Ultra-Anchas */
+@media (min-width: 1440px) {
+    main {
+        max-width: 1300px;
+    }
+    .cabecera-principal {
+        padding: var(--espacio-m) 10%;
+    }
+}

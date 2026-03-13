@@ -1,0 +1,30 @@
+/* =========================================
+   Tema: 01-tema-prisma
+   Módulo: variables.css
+   ========================================= */
+
+:root {
+    /* Paleta de Colores */
+    --color-fondo-principal: #ffffff;
+    --color-fondo-secundario: #f5f5f5;
+    --color-texto: #111111;
+    --color-borde: #000000;
+    --color-seleccion: #cccccc;
+    --color-acento: #2563eb; /* Nuevo: Azul técnico para interactividad */
+    
+    /* Tipografía */
+    --fuente-principal: 'Inter', sans-serif;
+    --fuente-codigo: 'Roboto Mono', monospace;
+    
+    /* Geometría y Efectos */
+    --grosor-borde: 2px;
+    --grosor-borde-doble: 4px;
+    --radio-borde: 0px;
+    --sombra-dura: 5px 5px 0px var(--color-borde);
+    
+    /* Espaciado Modular */
+    --espacio-s: 0.5rem;
+    --espacio-m: 1rem;
+    --espacio-l: 2rem;
+    --espacio-xl: 4rem;
+}
